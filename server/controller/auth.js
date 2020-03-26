@@ -38,7 +38,7 @@ function logout(req, res) {
 }
 
 function getSession(req, res) {
-  return req.session.username ? res.status(200).json(req.session.user) : res.status(403).json('Session does not exist');
+  return req.session.user ? res.status(200).json(req.session.user) : res.status(403).json('Session does not exist');
 }
 
 module.exports = {
