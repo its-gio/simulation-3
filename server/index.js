@@ -5,7 +5,7 @@ const massive = require("massive");
 const session = require("express-session");
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
-const { register } = require('./controller/auth');
+const { register, login } = require('./controller/auth');
 
 massive(CONNECTION_STRING)
   .then(db => app.set('db', db))
@@ -21,5 +21,6 @@ app
     })
   )
   .post('/auth/register', register)
+  .post('/auth/login', login)
 
 app.listen(SERVER_PORT, () => console.log(`Roger Rodger on port ${SERVER_PORT}`));

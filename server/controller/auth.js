@@ -4,8 +4,8 @@ async function register(req, res) {
   const { username, password } = req.body;
   const db = req.app.get('db');
 
-  const resUsers = await db.user.get_user(username).catch(err => console.error(err));
-  if (resUsers.length !== 0) return res.status(406).json('Username Taken');
+  const foundUser = await db.user.get_user(username).catch(err => console.error(err));
+  if (foundUser.length !== 0) return res.status(406).json('Username Taken');
 
   const hash = bcrypt.hashSync(password, 12);
   const registeredUser = await db.user.register(username, hash);
@@ -16,6 +16,23 @@ async function register(req, res) {
   return res.status(201).json(req.session.user);
 }
 
+async function login(req, res) {
+  const { username, password } = req.body;
+  const db = req.app.get('db');
+
+  const foundUser = await db.user.get_user(username).catch(err => console.error(err));
+  if (foundUser.length === 0) return res.status(401).json('User Not Found');
+  const user = foundUser[0];
+  const isAuth = await bcrypt.compare(password, user.password);
+  if (isAuth) {
+    req.session.user = { username: user.username };
+    return res.status(202).json(req.session.user);
+  }
+
+  return res.status(401).json('Username or Password incorrect');
+}
+
 module.exports = {
-  register
+  register,
+  login
 }
