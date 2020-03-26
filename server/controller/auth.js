@@ -32,7 +32,13 @@ async function login(req, res) {
   return res.status(401).json('Username or Password incorrect');
 }
 
+function logout(req, res) {
+  req.session.destroy();
+  res.sendStatus(200);
+}
+
 module.exports = {
   register,
-  login
+  login,
+  logout
 }
