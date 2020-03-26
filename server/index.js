@@ -6,9 +6,9 @@ const session = require("express-session");
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
-// massive(CONNECTION_STRING)
-//   .then(db => app.set('db', db))
-//   .catch(err => console.error(err));
+massive(CONNECTION_STRING)
+  .then(db => app.set('db', db))
+  .catch(err => console.error(err));
 
 app
   .use(express.json())
