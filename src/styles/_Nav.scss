@@ -1,5 +1,15 @@
 nav {
   padding: 10px;
-  flex-basis: 15%;
+  flex-basis: 10%;
   background-color: #fe9771;
+
+  .profile {
+    text-align: center;
+
+    &--img {
+      width: 75px;
+      background-color: white;
+      border-radius: 50%;
+    }
+  }
 }

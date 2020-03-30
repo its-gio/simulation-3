@@ -5,12 +5,12 @@
 
 input:focus { outline: none }
 
-.content {
-  padding: 10px;
-  flex-basis: 90%;
-}
-
 .account {
   display: flex;
   height: 100vh;
+}
+
+.content {
+  padding: 10px;
+  flex-basis: 90%;
 }
