@@ -6,7 +6,7 @@ const session = require("express-session");
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 const { register, login, logout, getSession } = require('./controller/auth');
-const { createPost } = require('./controller/posts');
+const { createPost, getPosts } = require('./controller/posts');
 
 massive(CONNECTION_STRING)
   .then(db => app.set('db', db))
@@ -26,5 +26,6 @@ app
   .get('/auth/logout', logout)
   .get('/auth/session', getSession)
   .post('/api/post', createPost)
+  .get('/api/posts', getPosts)
 
 app.listen(SERVER_PORT, () => console.log(`Roger Rodger on port ${SERVER_PORT}`));
