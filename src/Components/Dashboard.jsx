@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class Dashboard extends Component {
+class Dashboard extends Component {
   render() {
     return (
       <div>
@@ -9,3 +10,5 @@ export default class Dashboard extends Component {
     )
   }
 }
+
+export default connect((reduxState) => ({ user: reduxState.user }), {})(Dashboard);

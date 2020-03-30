@@ -1,11 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class Nav extends Component {
+class Nav extends Component {
   render() {
     return (
       <nav>
-        Milk
+        <div>
+          <img src="" alt=""/>
+          name
+        </div>
+
+
       </nav>
     )
   }
 }
+
+export default connect((reduxState) => ({ user: reduxState.user }), {})(Nav);
