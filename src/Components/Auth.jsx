@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { requestRegister, requestLogin } from '../redux/reducers/userReducer';
+import { Redirect } from 'react-router-dom';
 
 
 class Auth extends Component {
@@ -29,6 +30,7 @@ class Auth extends Component {
   render() {
     return (
       <div>
+        { this.props.user.user_id ? <Redirect to="/dashboard" /> : null }
         <form className="auth-form">
           <legend>
             Username:
@@ -48,4 +50,4 @@ class Auth extends Component {
   }
 }
 
-export default connect(null, { requestRegister, requestLogin })(Auth)
+export default connect((reduxState) => ({ user: reduxState.user }), { requestRegister, requestLogin })(Auth)
