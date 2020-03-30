@@ -8,11 +8,7 @@ function App(props) {
   const curPath = props.location.pathname !== '/'
   return (
     <div className={curPath ? "account" : '' }>
-      { 
-        curPath ?
-        <Nav /> :
-        null
-      }
+      { curPath ? <Nav /> : null }
       { routes }
     </div>
   );
