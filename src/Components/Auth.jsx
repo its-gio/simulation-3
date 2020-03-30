@@ -1,6 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class Auth extends Component {
+import { requestRegister } from '../redux/reducers/userReducer';
+
+
+class Auth extends Component {
   state = {
     username: '',
     password: ''
@@ -8,6 +12,12 @@ export default class Auth extends Component {
 
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleRegister = (e) => {
+    e.preventDefault();
+    const { username, password } = this.state;
+    this.props.requestRegister(username, password);
   }
 
   render() {
@@ -25,9 +35,11 @@ export default class Auth extends Component {
           </legend>
 
           <button>Login</button>
-          <button>Register</button>
+          <button onClick={this.handleRegister}>Register</button>
         </form>
       </div>
     )
   }
 }
+
+export default connect(null, { requestRegister })(Auth)
