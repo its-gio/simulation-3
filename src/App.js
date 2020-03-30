@@ -1,14 +1,20 @@
 import React from 'react';
 import './App.scss';
 import routes from './routes';
-import { HashRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import Nav from './Components/Nav';
 
 function App(props) {
   return (
-    <HashRouter>
+    <div>
+      { 
+        props.location.pathname !== '/' ?
+        <Nav /> :
+        null
+      }
       { routes }
-    </HashRouter>
+    </div>
   );
 }
 
-export default App;
+export default withRouter(App);
