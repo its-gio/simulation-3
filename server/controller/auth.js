@@ -11,7 +11,7 @@ async function register(req, res) {
   const registeredUser = await db.user.register(username, hash);
 
   const user = registeredUser[0];
-  req.session.user = { username: user.username }
+  req.session.user = { username: user.username, user_id: user.user_id };
 
   return res.status(201).json(req.session.user);
 }
@@ -25,7 +25,7 @@ async function login(req, res) {
   const user = foundUser[0];
   const isAuth = await bcrypt.compare(password, user.password);
   if (isAuth) {
-    req.session.user = { username: user.username };
+    req.session.user = { username: user.username, user_id: user.user_id };
     return res.status(202).json(req.session.user);
   }
 
