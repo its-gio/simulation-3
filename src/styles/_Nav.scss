@@ -2,14 +2,35 @@ nav {
   padding: 10px;
   flex-basis: 10%;
   background-color: #fe9771;
+  position: relative;
+
+  svg {
+    color: #fff;
+    font-size: 2.5rem;
+    margin: 10px;
+    cursor: pointer;
+  }
 
   .profile {
     text-align: center;
+    color: #fff;
 
     &--img {
       width: 75px;
       background-color: white;
       border-radius: 50%;
     }
+  }
+
+  .links {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .logout {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
