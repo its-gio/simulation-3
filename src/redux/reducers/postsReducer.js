@@ -24,7 +24,6 @@ export default function reducer(state = initialState, action) {
         loading: true
       }
     case `${GET_CONTENT}_FULFILLED`:
-      console.log(payload.data)
       return {
         ...state,
         posts: payload.data,
