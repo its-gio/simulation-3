@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FiSearch } from 'react-icons/fi';
 
+import { getContent } from '../redux/reducers/postsReducer';
+
 class Dashboard extends Component {
   state = {
     title: '',
     checkbox: true
+  }
+
+  componentDidMount() {
+    this.props.getContent();
   }
 
   handleChange = e => {
@@ -37,4 +43,6 @@ class Dashboard extends Component {
   }
 }
 
-export default connect((reduxState) => ({ user: reduxState.user }), {})(Dashboard);
+const mapStateToProps = (reduxState) => ({ user_id: reduxState.user.user_id, posts: reduxState.posts })
+
+export default connect(mapStateToProps, { getContent })(Dashboard);
