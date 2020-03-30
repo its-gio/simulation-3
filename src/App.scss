@@ -10,7 +10,14 @@ input:focus { outline: none }
   height: 100vh;
 }
 
-.content {
+.content-container {
+  background-color: #f2f2f2;
   padding: 10px;
   flex-basis: 90%;
+
+  &--inner {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+  }
 }
