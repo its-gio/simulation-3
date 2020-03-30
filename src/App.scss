@@ -1,5 +1,16 @@
 @import './styles/Auth';
+@import './styles/Nav';
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 input:focus { outline: none }
+
+.content {
+  padding: 10px;
+  flex-basis: 90%;
+}
+
+.account {
+  display: flex;
+  height: 100vh;
+}

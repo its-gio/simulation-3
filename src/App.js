@@ -5,10 +5,11 @@ import { withRouter } from 'react-router-dom';
 import Nav from './Components/Nav';
 
 function App(props) {
+  const curPath = props.location.pathname !== '/'
   return (
-    <div>
+    <div className={curPath ? "account" : '' }>
       { 
-        props.location.pathname !== '/' ?
+        curPath ?
         <Nav /> :
         null
       }
