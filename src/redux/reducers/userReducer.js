@@ -77,7 +77,6 @@ export default function reducer(state = initialState, action) {
         loading: true
       }
     case `${GET_LOGOUT}_FULFILLED`:
-      console.log("Logout hit")
       return {
         ...state,
         user_id: null,

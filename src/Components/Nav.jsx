@@ -25,7 +25,7 @@ class Nav extends Component {
         </div>
 
         <div className="logout">
-          <FiPower onClick={this.props.getLogout} />
+          <FiPower onClick={this.props.logout} />
         </div>
       </nav>
     )
