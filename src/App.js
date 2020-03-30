@@ -3,10 +3,10 @@ import './App.scss';
 import routes from './routes';
 import { HashRouter } from 'react-router-dom';
 
-function App() {
+function App(props) {
   return (
     <HashRouter>
-      {routes}
+      { routes }
     </HashRouter>
   );
 }
