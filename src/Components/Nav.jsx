@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
+import { FiHome, FiFilePlus, FiPower } from "react-icons/fi";
 
-import { getSession } from '../redux/reducers/userReducer';
+import { logout, getSession } from '../redux/reducers/userReducer';
 
 class Nav extends Component {
   componentDidMount() {
@@ -18,7 +19,14 @@ class Nav extends Component {
           <p className="profile--username">{this.props.username}</p>
         </div>
 
+        <div className="links">
+          <Link to="/dashboard"><FiHome /></Link>
+          <Link to="/new"><FiFilePlus /></Link>
+        </div>
 
+        <div className="logout">
+          <FiPower onClick={this.props.getLogout} />
+        </div>
       </nav>
     )
   }
@@ -26,4 +34,4 @@ class Nav extends Component {
 
 const mapStateToProps = (reduxState) => ({ user_id: reduxState.user.user_id, username: reduxState.user.username })
 
-export default connect(mapStateToProps, { getSession })(Nav);
+export default connect(mapStateToProps, { logout, getSession })(Nav);
