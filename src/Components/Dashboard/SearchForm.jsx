@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { connect } from 'react-redux';
 
-import { getQueryPost } from '../../redux/reducers/postsReducer';
+import { getPosts } from '../../redux/reducers/postsReducer';
 
 class SearchForm extends Component {
   state = {
@@ -22,7 +22,7 @@ class SearchForm extends Component {
   handleQuerySearch = (e) => {
     e.preventDefault();
     const { title } = this.state;
-    this.props.getQueryPost(title);
+    this.props.getPosts({ title });
   }
 
   render() {
@@ -42,4 +42,4 @@ class SearchForm extends Component {
   }
 }
 
-export default connect(null, { getQueryPost })(SearchForm)
+export default connect(null, { getPosts })(SearchForm)

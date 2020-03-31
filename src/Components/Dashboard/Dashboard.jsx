@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getContent } from '../../redux/reducers/postsReducer';
+import { getPosts } from '../../redux/reducers/postsReducer';
 import Loading from '../Loading';
 import PostsList from './PostsList';
 import SearchForm from './SearchForm'
 
 class Dashboard extends Component {
   componentDidMount() {
-    this.props.getContent();
+    this.props.getPosts();
   }
   
   render() {
@@ -29,4 +29,4 @@ class Dashboard extends Component {
 
 const mapStateToProps = (reduxState) => ({ user_id: reduxState.user.user_id, posts: reduxState.posts })
 
-export default connect(mapStateToProps, { getContent })(Dashboard);
+export default connect(mapStateToProps, { getPosts })(Dashboard);
