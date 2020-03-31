@@ -1,7 +1,6 @@
 import React from 'react'
 
 function Loading(props) {
-  console.log(props)
   switch (props.loading) {
     case true:
       return <h1>Loading...</h1>
