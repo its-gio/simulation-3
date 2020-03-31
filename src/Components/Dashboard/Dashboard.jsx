@@ -18,7 +18,7 @@ class Dashboard extends Component {
         <div className="content-container--inner">
           <SearchForm />
 
-          {/* PostList */}
+          {/* PostList Component */}
           <Loading loading={loading} render={() => <PostsList posts={posts} />}
           />
         </div>
